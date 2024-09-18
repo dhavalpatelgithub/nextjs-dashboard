@@ -10,21 +10,6 @@ import { Metadata } from 'next';
  
 export const metadata: Metadata = {
   title: 'Invoices',
-  generator: 'Next.js',
-  applicationName: 'Next.js',
-  referrer: 'origin-when-cross-origin',
-  keywords: ['Next.js', 'React', 'JavaScript'],
-  authors: [{ name: 'Seb' }, { name: 'Josh', url: 'https://nextjs.org' }],
-  creator: 'Jiachi Liu',
-  publisher: 'Sebastian Markbåge',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    images: '/opengraph-image.png',
-  },
 };
  
 export default async function Page({
@@ -37,6 +22,7 @@ export default async function Page({
 }) {
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
+  
   const totalPages = await fetchInvoicesPages(query);
 
   return (
